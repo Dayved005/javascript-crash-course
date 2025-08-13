@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Variables</title>
+       
+
+        <script>
+            let variable1 = 3;
+            console.log(variable1);
+            // using "let" to name variables allows for the change of variable name later in the code incase there is a need to reassign the vale of a variable name.
+
+            const calculation = 2 + 2;
+            console.log(calculation);
+            console.log(calculation + 2);
+
+            const result = calculation + 2;
+            console.log(result);
+
+            const message = 'hello';
+            console.log(message); console.log(';');
+
+            variable1 = 5;
+            console.log(variable1);
+
+            variable1 = variable1 + 1;
+            console.log(variable1);
+
+            const variable2 = 4;
+            // using "const" to name variables means that the variable name cannot be reassigned later in the code. The benefit of using "const" to name variables is that yo know for sure that the value of the variable name would remain constant throughout the code.
+
+            // Best practice in JavaScript is to use "const" by default rather than "let".
+
+            var variable3 = 3;
+            // 'var' is the last way and actually the original way of naming variables in JavaScript but it was later used lesser because of the issues it comes with. The issue being that it doesn't obey the rules of scope.
+
+            console.log(typeof variable2);
+            console.log(typeof message);
+            // The attribute "typeof" can be used with varibles to be know the type of value attached to a variable name.
+        </script>
+    </body>
+</html>

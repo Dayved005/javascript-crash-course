@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart Quantity</title>
+    </head>
+    <body>
+        Cart Quantity
+        <p>
+        <button onclick="
+            console.log(`Cart quantity: ${cartQuantity}`);
+            ">Show Quantity</button>
+
+        <button onclick="
+            // cartQuantity = cartQuantity + 1; Works the same as the third line of code.
+            // cartQuantity += 1; Works the same as the third line of code.
+            cartQuantity++;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">Add to Cart</button>
+
+        <button onclick="
+            // cartQuantity = cartQuantity + 2; It is the same thing as the code below.
+            cartQuantity +=2;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">+2</button>
+
+        <button onclick="
+            // cartQuantity = cartQuantity + 3; It is the same thing as the code below.
+            cartQuantity += 3;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">+3</button>
+
+        <button onclick="
+            cartQuantity += 4;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">+4</button>
+
+        <button onclick="
+            cartQuantity += 5;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">+5</button>
+
+        <!-- 5i -->
+         <button onclick="
+            cartQuantity --;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">Remove from Cart</button>
+
+        <!-- 5j -->
+         <button onclick="
+            cartQuantity -= 2;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">-2</button>
+
+        <button onclick="
+            cartQuantity -= 3;
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">-3</button>
+
+        <button onclick="
+            cartQuantity = 0;
+            console.log('Cart was reset.');
+            console.log(`Cart quantity: ${cartQuantity}`);
+        ">Reset Cart</button>
+
+        </p>
+        <script>
+          let cartQuantity = 0;  
+        </script> 
+    </body>
+</html>
