@@ -9,27 +9,42 @@
     <p>Rock Paper Scissors</p>
     <button onclick="
       playGame('rock');
+      document.querySelector('.js-reset')
+          .innerHTML = '';
     ">Rock</button>
 
     <button onclick="
       playGame('paper');
+      document.querySelector('.js-reset')
+          .innerHTML = '';
     ">Paper</button>
 
     <button onclick="
       playGame('scissors');
+      document.querySelector('.js-reset')
+          .innerHTML = '';
     ">Scissors</button>
 
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+    <p class="js-reset"></p>
+
     <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-    {
-      alert(`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}.`);
-    }
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+      updateScoreElement();
+      document.querySelector('.js-reset')
+          .innerHTML = 'The score has been reset.';
+      document.querySelector('.js-moves').innerHTML = '';
+      document.querySelector('.js-result').innerHTML = '';
     ">
       Reset Score
     </button>
+
+    
 
     <!-- When writting JavaScript code the best strategy is to think about what strategy (The thought about strategy is called an alogorithm) to use then covert the strategy code.-->
     <script>
@@ -38,6 +53,9 @@
           losses: 0,
           ties: 0
         };
+
+      updateScoreElement();
+
       /*
       if (!score) {
         score = {
@@ -90,7 +108,24 @@
 
       localStorage.setItem('score', JSON.stringify(score));
 
-      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+      updateScoreElement();
+
+      document.querySelector('.js-result')
+          .innerHTML = result;
+
+      document.querySelector('.js-moves')
+        .innerHTML = `You picked ${playerMove}. Computer picked ${computerMove}.`
+
+      if (result === 'Wins: 0, Losses: 0, Ties: 0.') {
+        document.querySelector('.js-reset')
+            .innerHTML = 'The score has been reset.';
+      }
+
+      }
+
+      function updateScoreElement() {
+        document.querySelector('.js-score')
+            .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}.`;
       }
 
       function pickComputerMove() {

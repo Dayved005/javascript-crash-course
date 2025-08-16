@@ -9,8 +9,8 @@
         Cart Quantity
         <p>
         <button onclick="
-            console.log(`Cart quantity: ${cartQuantity}`);
-            ">Show Quantity</button>
+            updateCartQuantity(0);
+        ">Show Quantity</button>
 
         <button onclick="
           updateCartQuantity(1);
@@ -50,23 +50,36 @@
             cartQuantity = 0;
             console.log('Cart was reset.');
             console.log(`Cart quantity: ${cartQuantity}`);
+            document.querySelector('.js-cart-quantity')
+             .innerHTML = `Cart Quantity has been reset to ${cartQuantity}`;
         ">Reset Cart</button>
 
         </p>
+
+        <p class="js-cart-quantity"></p>
         <script>
           let cartQuantity = 0;  
 
           function updateCartQuantity(change) {
             if (cartQuantity + change > 10) {
-                alert('The cart is full');
+                document.querySelector('.js-cart-quantity')
+                .innerHTML = `Cart is full `;
                 return;
             } else if (cartQuantity + change < 0) {
-                alert('Not enough items in the cart');
+                document.querySelector('.js-cart-quantity')
+                .innerHTML = `Not enough items in the cart`;
+                return;
             } else {
                 cartQuantity += change;
                 console.log(`Cart Quantity: ${cartQuantity}`);
+                displayCartQuantity();
             }
           }
+
+            function displayCartQuantity() {
+                document.querySelector('.js-cart-quantity')
+                    .innerHTML = `Cart Quantity: ${cartQuantity}`;
+            }
         </script> 
     </body>
 </html>
